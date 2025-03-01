@@ -17,4 +17,10 @@ function getComputerChoice()
     return computerChoice;
 }
 
+function getHumanChoice()
+{
+    return prompt("choose 'rock', 'paper' or 'scissors'");
+}
+
 console.log(getComputerChoice());
+console.log(getHumanChoice());
