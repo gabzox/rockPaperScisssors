@@ -84,12 +84,16 @@ function playRound(humanChoice, computerChoice)
 
 function playGame()
 {
-    for (let round = 0; round < 5; round++)
-    {
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        playRound(humanSelection,computerSelection);
-    }
+    let humanSelection;
+    let computerSelection = getComputerChoice();
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            humanSelection = button.id;
+            playRound(humanSelection,computerSelection);
+        });
+    });
     if (humanScore > computerScore)
     {
         console.log("you win the game!");
@@ -98,14 +102,16 @@ function playGame()
     {
         console.log("you lost the game!!");
     }
-    else if (computerSCore == humanScore)
+    else if (computerScore == humanScore)
     {
         console.log("you tied the game!");
     }
 }
+
 let humanScore = 0;
 let computerScore = 0;
 playGame();
+
 
 // console.log(getComputerChoice());
 // console.log(getHumanChoice());
