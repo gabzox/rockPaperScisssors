@@ -26,21 +26,24 @@ function playRound(humanChoice, computerChoice)
 {
     humanChoice = humanChoice.toLowerCase();
 
+    const div = document.querySelector("div");
+    const para = document.createElement("p");
+
     if (humanChoice === "rock")
     {
         if (computerChoice === "rock")
         {
-            console.log("It's a tie");
+            para.textContent = "It's a tie!";
 
         }
         else if (computerChoice === "paper")
         {
-            console.log("You lose! Paper beats rock");
+            para.textContent = "You lose! Paper beats rock";
             computerScore++;
         }
         else if (computerChoice === "scissors")
         {
-            console.log("You win! Rock beats scissors");
+            para.textContent = "You win! Rock beats scissors";
             humanScore++;
         }
     }
@@ -48,16 +51,16 @@ function playRound(humanChoice, computerChoice)
     {
         if (computerChoice === "rock")
         {
-            console.log("You win! Paper beats rock");
+            para.textContent = "You win! Paper beats rock";
             humanScore++;
         }
         else if (computerChoice === "paper")
         {
-            console.log("It's a tie!")
+            para.textContent = "It's a tie!";
         }
         else if (computerChoice === "scissors")
         {
-            console.log("You lose! Scissors beats paper");
+            para.textContent = "You lose! Scissors beats paper";
             computerScore++;
         }
 
@@ -66,20 +69,21 @@ function playRound(humanChoice, computerChoice)
     {
         if (computerChoice === "rock")
         {
-            console.log("You lose! Rock beats scissors");
+            para.textContent = "You lose! Rock beats scissors";
             computerScore++;
         }
         else if (computerChoice === "paper")
         {
-            console.log("You win! Scissors beats paper");
+            para.textContent = "You win! Scissors beats paper";
             computerScore++;
         }
         else if (computerChoice === "scissors")
         {
-            console.log("It's a tie!");
+            para.textContent = "It's a tie!";
         }
 
     }
+    div.appendChild(para);
 }
 
 function playGame()
@@ -87,7 +91,6 @@ function playGame()
     let humanSelection;
     let computerSelection = getComputerChoice();
     const buttons = document.querySelectorAll("button");
-
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
             humanSelection = button.id;
